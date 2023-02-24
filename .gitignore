@@ -1,0 +1,12 @@
+/*
+
+# Dirs
+!/examples
+!/src
+
+# Files
+!/.gitignore
+!/pom.xml
+!/README.md
+!/CHANGELOG.md
+!/SPEC.md
