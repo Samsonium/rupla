@@ -61,7 +61,6 @@ public class Lexer {
                 position += result.end();
                 return true;
             }
-
         }
 
         System.out.println("Ошибка: неизвестный токен (позиция " 
