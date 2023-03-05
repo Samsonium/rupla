@@ -10,9 +10,13 @@ public class TokenList {
         // Data types
         list.add(new TokenType("D_Number", "[0-9]*"));
         list.add(new TokenType("D_Hex",    "#[A-f0-9]*"));
-        list.add(new TokenType("D_Char",   "'[A-zА-я]'"));
+        list.add(new TokenType("D_Char",   "'.'"));
         list.add(new TokenType("D_String", "\".*\""));
         list.add(new TokenType("D_Bool",   "(да|нет|истинно|ложно)"));
+        
+        // Common
+        list.add(new TokenType("D_Type",    "(Число|Хекс|Символ|Строка|Булев)"));
+        list.add(new TokenType("D_Name",    "[A-zА-я_]([A-zА-я0-9_]*)?"));
         
         // Binary operators
         list.add(new TokenType("B_Add", "[\\+]"));
@@ -36,19 +40,13 @@ public class TokenList {
         list.add(new TokenType("C_In",   "(элемент)"));
 
         // Assign operators
-        list.add(new TokenType("As",     "(=)"));
+        list.add(new TokenType("As",     "[=]{1}"));
         list.add(new TokenType("As_Add", "(\\+=)"));
         list.add(new TokenType("As_Sub", "(\\-=)"));
         list.add(new TokenType("As_Mul", "(\\*=)"));
         list.add(new TokenType("As_Div", "(\\/=)"));
         list.add(new TokenType("As_Exp", "(\\^=)"));
         list.add(new TokenType("As_Mod", "(\\%=)"));
-
-        // Etc operators
-        list.add(new TokenType("E_Ret",    "(вернуть)"));
-        list.add(new TokenType("E_Input",  "(ввод)"));
-        list.add(new TokenType("E_Output", "(вывод|вывести)"));
-        list.add(new TokenType("E_Var",    "[A-zА-я_][A-zА-я0-9_]+"));
 
         // Conditional structures
         list.add(new TokenType("CC_If",     "(если)"));
@@ -66,10 +64,12 @@ public class TokenList {
 
         // Function structures
         list.add(new TokenType("CFn_Func",    "(функция)"));
-        list.add(new TokenType("CFn_Name",    "[A-zА-я_]([A-zА-я0-9_]*)?"));
-        list.add(new TokenType("CFn_ArgType", "(Число|Хекс|Символ|Строка|Булев)"));
-        list.add(new TokenType("CFn_ArgName", "[A-zА-я_]([A-zА-я0-9_]*)?"));
-        list.add(new TokenType("CFn_Type",    "(Число|Хекс|Символ|Строка|Булев)"));
+
+        // Etc operators
+        list.add(new TokenType("E_Ret",    "(вернуть)"));
+        list.add(new TokenType("E_Input",  "(ввод)"));
+        list.add(new TokenType("E_Output", "(вывод|вывести)"));
+        list.add(new TokenType("E_Var",    "[A-zА-я_][A-zА-я0-9_]+"));
 
         // Etc symbols
         list.add(new TokenType("EC_Semicolon", "[\\;]"));
@@ -80,7 +80,6 @@ public class TokenList {
         list.add(new TokenType("EC_ParL",      "[\\(]"));
         list.add(new TokenType("EC_ParR",      "[\\)]"));
         list.add(new TokenType("EC_BrL",       "[\\{]"));
-        list.add(new TokenType("EC_PrR",       "[\\}]"));
-        list.add(new TokenType("EC_SLComm",    "[//]"));
+        list.add(new TokenType("EC_BrR",       "[\\}]"));
     }
 }
