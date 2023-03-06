@@ -2,6 +2,7 @@ package ru.samsonium.parser;
 
 import ru.samsonium.parser.ast.expressions.BinaryExpression;
 import ru.samsonium.parser.ast.expressions.ConditionalExpression;
+import ru.samsonium.parser.ast.expressions.FunctionalExpression;
 import ru.samsonium.parser.ast.expressions.ValueExpression;
 import ru.samsonium.parser.ast.statements.AssignmentStatement;
 import ru.samsonium.parser.ast.statements.BlockStatement;
@@ -9,6 +10,7 @@ import ru.samsonium.parser.ast.statements.BreakStatement;
 import ru.samsonium.parser.ast.statements.DoWhileStatement;
 import ru.samsonium.parser.ast.statements.ForStatement;
 import ru.samsonium.parser.ast.statements.FuncDefineStatement;
+import ru.samsonium.parser.ast.statements.FunctionStatement;
 
 public interface Visitor {
     // Statements
@@ -18,9 +20,11 @@ public interface Visitor {
     void visit(DoWhileStatement expression);
     void visit(ForStatement expression);
     void visit(FuncDefineStatement expression);
+    void visit(FunctionStatement expression);
 
     // Expressions
     void visit(BinaryExpression expression);
     void visit(ConditionalExpression expression);
+    void visit(FunctionalExpression expression);
     void visit(ValueExpression expression);
 }
