@@ -3,6 +3,7 @@ package ru.samsonium.parser;
 import ru.samsonium.parser.ast.expressions.BinaryExpression;
 import ru.samsonium.parser.ast.expressions.ConditionalExpression;
 import ru.samsonium.parser.ast.expressions.FunctionalExpression;
+import ru.samsonium.parser.ast.expressions.TernaryExpression;
 import ru.samsonium.parser.ast.expressions.ValueExpression;
 import ru.samsonium.parser.ast.statements.AssignmentStatement;
 import ru.samsonium.parser.ast.statements.BlockStatement;
@@ -32,5 +33,6 @@ public interface Visitor {
     void visit(BinaryExpression expression);
     void visit(ConditionalExpression expression);
     void visit(FunctionalExpression expression);
+    void visit(TernaryExpression expression);
     void visit(ValueExpression expression);
 }
