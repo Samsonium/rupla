@@ -23,9 +23,10 @@ public class TokenList {
         list.add(new TokenType("CC_If",     "(если)"));
         list.add(new TokenType("CC_ElseIf", "(иначе если)"));
         list.add(new TokenType("CC_Else",   "(иначе)"));
-        list.add(new TokenType("CC_Switch", "(выбрать)"));
+        list.add(new TokenType("CC_Switch", "(выбор)"));
         list.add(new TokenType("CC_Case",   "(вариант)"));
-        list.add(new TokenType("CC_Break",  "(закончить)"));
+        list.add(new TokenType("CC_Break",  "(прервать)"));
+        list.add(new TokenType("CC_Default", "(по умолчанию)"));
 
         // Cycle structures
         list.add(new TokenType("CF_For",   "(цикл)"));
