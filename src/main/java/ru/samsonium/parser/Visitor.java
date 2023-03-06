@@ -13,6 +13,7 @@ import ru.samsonium.parser.ast.statements.ForStatement;
 import ru.samsonium.parser.ast.statements.FuncDefineStatement;
 import ru.samsonium.parser.ast.statements.FunctionStatement;
 import ru.samsonium.parser.ast.statements.OutputStatement;
+import ru.samsonium.parser.ast.statements.ReturnStatement;
 
 public interface Visitor {
     // Statements
@@ -25,6 +26,7 @@ public interface Visitor {
     void visit(FuncDefineStatement expression);
     void visit(FunctionStatement expression);
     void visit(OutputStatement expression);
+    void visit(ReturnStatement expression);
 
     // Expressions
     void visit(BinaryExpression expression);
