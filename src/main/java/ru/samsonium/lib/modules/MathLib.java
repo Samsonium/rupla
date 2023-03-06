@@ -1,4 +1,4 @@
-package ru.samsonium.lib.stdlib;
+package ru.samsonium.lib.modules;
 
 import java.util.function.DoubleBinaryOperator;
 import java.util.function.DoubleFunction;

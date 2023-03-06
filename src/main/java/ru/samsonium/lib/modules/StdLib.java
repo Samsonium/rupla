@@ -1,4 +1,4 @@
-package ru.samsonium.lib.stdlib;
+package ru.samsonium.lib.modules;
 
 import ru.samsonium.lib.Function;
 import ru.samsonium.lib.Functions;

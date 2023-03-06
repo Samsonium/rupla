@@ -1,4 +1,4 @@
-package ru.samsonium.lib.stdlib;
+package ru.samsonium.lib.modules;
 
 public interface Lib {
     void init();
