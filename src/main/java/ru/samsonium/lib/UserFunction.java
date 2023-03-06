@@ -4,6 +4,8 @@ import java.util.List;
 
 import ru.samsonium.lib.types.NumberValue;
 import ru.samsonium.lib.types.Value;
+import ru.samsonium.parser.ast.Statement;
+import ru.samsonium.parser.ast.statements.ReturnStatement;
 
 public class UserFunction implements Function {
     private final List<String> argNames;
@@ -29,7 +31,7 @@ public class UserFunction implements Function {
     @Override
     public Value exec(Value... args) {
         try {
-            body.execute(args);
+            body.execute();
             return new NumberValue(0);
         } catch (ReturnStatement rt) {
             return rt.getResult();
