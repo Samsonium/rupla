@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TokenList {
+    public static final TokenType EOF = new TokenType("EOF", "eof");
+
     public static final List<TokenType> list = new ArrayList<>();
     static {
         
@@ -13,10 +15,6 @@ public class TokenList {
         list.add(new TokenType("D_Char",   "'.'"));
         list.add(new TokenType("D_String", "\".*\""));
         list.add(new TokenType("D_Bool",   "(да|нет|истинно|ложно)"));
-        
-        // Common
-        list.add(new TokenType("D_Type",    "(Число|Хекс|Символ|Строка|Булев)"));
-        list.add(new TokenType("D_Name",    "[A-zА-я_]([A-zА-я0-9_]*)?"));
         
         // Binary operators
         list.add(new TokenType("B_Add", "[\\+]"));
@@ -70,6 +68,10 @@ public class TokenList {
         list.add(new TokenType("E_Input",  "(ввод)"));
         list.add(new TokenType("E_Output", "(вывод|вывести)"));
         list.add(new TokenType("E_Var",    "[A-zА-я_][A-zА-я0-9_]+"));
+
+        // Common
+        list.add(new TokenType("D_Type",    "(Число|Хекс|Символ|Строка|Булев)"));
+        list.add(new TokenType("D_Name",    "[A-zА-я_]([A-zА-я0-9_]*)?"));
 
         // Etc symbols
         list.add(new TokenType("EC_Semicolon", "[\\;]"));
