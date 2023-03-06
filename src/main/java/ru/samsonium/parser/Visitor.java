@@ -6,6 +6,7 @@ import ru.samsonium.parser.ast.expressions.FunctionalExpression;
 import ru.samsonium.parser.ast.expressions.TernaryExpression;
 import ru.samsonium.parser.ast.expressions.UnaryExpression;
 import ru.samsonium.parser.ast.expressions.ValueExpression;
+import ru.samsonium.parser.ast.expressions.VariableExpression;
 import ru.samsonium.parser.ast.statements.AssignmentStatement;
 import ru.samsonium.parser.ast.statements.BlockStatement;
 import ru.samsonium.parser.ast.statements.BreakStatement;
@@ -37,4 +38,5 @@ public interface Visitor {
     void visit(TernaryExpression expression);
     void visit(UnaryExpression expression);
     void visit(ValueExpression expression);
+    void visit(VariableExpression expression);
 }
