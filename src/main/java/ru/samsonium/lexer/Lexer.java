@@ -10,7 +10,6 @@ import ru.samsonium.lexer.token.TokenList;
 
 public class Lexer {
 
-
     // Initial data section
     private final String source;
     private final int length;
@@ -35,6 +34,7 @@ public class Lexer {
             if (token.getType().getName() != "EC_WS")
                 result.add(token);
         }
+        result.add(new Token(TokenList.EOF, "", -1));
 
         return result;
     }
@@ -65,7 +65,6 @@ public class Lexer {
 
         System.out.println("Ошибка: неизвестный токен (позиция " 
             + position + ", последовательность: \"" + data + "\")");
-        System.exit(1);
         return false;
     }
 }
