@@ -9,6 +9,12 @@ public class ForStatement implements Statement {
     public final Expression term;
     public final Statement inc;
     public final Statement stmt;
+
+    /*
+     * constructor
+     * 
+     * 
+     */
     
     public ForStatement(Statement init, Expression term, Statement inc, Statement stmt) {
         this.init = init;

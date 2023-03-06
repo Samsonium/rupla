@@ -39,7 +39,7 @@ public class Token {
             d_append = " ".repeat(18 - d.length());
 
         buff.append(d + d_append);
-        buff.append("данные=\"" + data + "\")");
+        buff.append("данные=<" + data + ">)");
 
         return buff.toString();
     }

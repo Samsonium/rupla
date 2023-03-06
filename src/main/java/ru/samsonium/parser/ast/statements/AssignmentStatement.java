@@ -7,10 +7,20 @@ import ru.samsonium.parser.ast.Expression;
 import ru.samsonium.parser.ast.Statement;
 
 public class AssignmentStatement implements Statement {
+    public enum DataType {
+        Number,
+        Hex,
+        Char,
+        String,
+        Bool,
+    }
+
+    public final DataType type;
     public final String variable;
     public final Expression expression;
 
-    public AssignmentStatement(String variable, Expression expression) {
+    public AssignmentStatement(DataType type, String variable, Expression expression) {
+        this.type = type;
         this.variable = variable;
         this.expression = expression;
     }

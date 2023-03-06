@@ -14,14 +14,14 @@ public class TokenList {
         list.add(new TokenType("D_Hex",    "#[A-f0-9]*"));
         list.add(new TokenType("D_Char",   "'.'"));
         list.add(new TokenType("D_String", "\".*\""));
-        list.add(new TokenType("D_Bool",   "(да|нет|истинно|ложно)"));
+        list.add(new TokenType("D_Bool",   "(да|нет)"));
 
         // Type definition
         list.add(new TokenType("D_Type",    "(Число|Хекс|Символ|Строка|Булев)"));
         
         // Conditional structures
         list.add(new TokenType("CC_If",     "(если)"));
-        list.add(new TokenType("CC_ElseIf", "(иначе если)"));
+        // list.add(new TokenType("CC_ElseIf", "(иначе если)"));
         list.add(new TokenType("CC_Else",   "(иначе)"));
         list.add(new TokenType("CC_Switch", "(выбор)"));
         list.add(new TokenType("CC_Case",   "(вариант)"));
@@ -30,7 +30,7 @@ public class TokenList {
 
         // Cycle structures
         list.add(new TokenType("CF_For",   "(цикл)"));
-        list.add(new TokenType("CF_Iter",  "(перебор)"));
+        list.add(new TokenType("CF_Iter",  "(перебор)"));                       // NOT READY
         list.add(new TokenType("CF_While", "(пока)"));
         list.add(new TokenType("CF_Do",    "(выполнять|выполнить)"));
 

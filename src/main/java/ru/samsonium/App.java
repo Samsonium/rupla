@@ -8,6 +8,7 @@ import java.util.Scanner;
 import ru.samsonium.lexer.Lexer;
 import ru.samsonium.lexer.token.Token;
 import ru.samsonium.parser.Parser;
+import ru.samsonium.parser.ast.Statement;
 
 public class App {
     private static boolean debugLexer = false;
@@ -93,11 +94,14 @@ public class App {
         // Parsing
         if (debugParser) System.out.println("-> Парсинг...");
         Parser parser = new Parser(tokens);
-        int result = parser.parse();
+        Statement result = parser.parse();
 
-        // if ()
+        if (debugParser) {
+            System.out.println("--> Получены следующие выражения:");
+            System.out.println(result);
+        }
 
-        System.out.println("Пока-пока!");
+        result.execute();
     }
 
     /** Parse arguments */

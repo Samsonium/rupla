@@ -63,8 +63,9 @@ public class Lexer {
             }
         }
 
-        System.out.println("Ошибка: неизвестный токен (позиция " 
-            + position + ", последовательность: \"" + data + "\")");
-        return false;
+        String[] parts = source.substring(0, position).split("\n");
+        int row = parts.length;
+        int col = source.substring(0, position).lastIndexOf("\n");
+        throw new LexerException(row, position - col, "неизвестный токен");
     }
 }

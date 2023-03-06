@@ -24,7 +24,7 @@ public class UnaryExpression implements Expression {
     public final Expression expression;
     public final Operator op;
     
-    public UnaryExpression(Expression expression, Operator op) {
+    public UnaryExpression(Operator op, Expression expression) {
         this.expression = expression;
         this.op = op;
     }

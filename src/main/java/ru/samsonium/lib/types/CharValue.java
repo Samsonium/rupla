@@ -1,9 +1,9 @@
 package ru.samsonium.lib.types;
 
-public class Char implements Value {
+public class CharValue implements Value {
     private final char value;
 
-    public Char(char value) {
+    public CharValue(char value) {
         this.value = value;
     }
 
