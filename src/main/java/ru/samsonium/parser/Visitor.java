@@ -8,6 +8,7 @@ import ru.samsonium.parser.ast.statements.BlockStatement;
 import ru.samsonium.parser.ast.statements.BreakStatement;
 import ru.samsonium.parser.ast.statements.DoWhileStatement;
 import ru.samsonium.parser.ast.statements.ForStatement;
+import ru.samsonium.parser.ast.statements.FuncDefineStatement;
 
 public interface Visitor {
     // Statements
@@ -16,6 +17,7 @@ public interface Visitor {
     void visit(BreakStatement expression);
     void visit(DoWhileStatement expression);
     void visit(ForStatement expression);
+    void visit(FuncDefineStatement expression);
 
     // Expressions
     void visit(BinaryExpression expression);
