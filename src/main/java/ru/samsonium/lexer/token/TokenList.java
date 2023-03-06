@@ -15,7 +15,24 @@ public class TokenList {
         list.add(new TokenType("D_Char",   "'.'"));
         list.add(new TokenType("D_String", "\".*\""));
         list.add(new TokenType("D_Bool",   "(да|нет|истинно|ложно)"));
+
+        // Type definition
+        list.add(new TokenType("D_Type",    "(Число|Хекс|Символ|Строка|Булев)"));
         
+        // Conditional structures
+        list.add(new TokenType("CC_If",     "(если)"));
+        list.add(new TokenType("CC_ElseIf", "(иначе если)"));
+        list.add(new TokenType("CC_Else",   "(иначе)"));
+        list.add(new TokenType("CC_Switch", "(выбрать)"));
+        list.add(new TokenType("CC_Case",   "(вариант)"));
+        list.add(new TokenType("CC_Break",  "(закончить)"));
+
+        // Cycle structures
+        list.add(new TokenType("CF_For",   "(цикл)"));
+        list.add(new TokenType("CF_Iter",  "(перебор)"));
+        list.add(new TokenType("CF_While", "(пока)"));
+        list.add(new TokenType("CF_Do",    "(выполнять|выполнить)"));
+
         // Binary operators
         list.add(new TokenType("B_Add", "[\\+]"));
         list.add(new TokenType("B_Sub", "[\\-]"));
@@ -46,20 +63,6 @@ public class TokenList {
         list.add(new TokenType("As_Exp", "(\\^=)"));
         list.add(new TokenType("As_Mod", "(\\%=)"));
 
-        // Conditional structures
-        list.add(new TokenType("CC_If",     "(если)"));
-        list.add(new TokenType("CC_ElseIf", "(иначе если)"));
-        list.add(new TokenType("CC_Else",   "(иначе)"));
-        list.add(new TokenType("CC_Switch", "(выбрать)"));
-        list.add(new TokenType("CC_Case",   "(вариант)"));
-        list.add(new TokenType("CC_Break",  "(закончить)"));
-
-        // Cycle structures
-        list.add(new TokenType("CF_For",   "(цикл)"));
-        list.add(new TokenType("CF_Iter",  "(перебор)"));
-        list.add(new TokenType("CF_While", "(пока)"));
-        list.add(new TokenType("CF_Do",    "(выполнять|выполнить)"));
-
         // Function structures
         list.add(new TokenType("CFn_Func",    "(функция)"));
 
@@ -67,10 +70,8 @@ public class TokenList {
         list.add(new TokenType("E_Ret",    "(вернуть)"));
         list.add(new TokenType("E_Input",  "(ввод)"));
         list.add(new TokenType("E_Output", "(вывод|вывести)"));
-        list.add(new TokenType("E_Var",    "[A-zА-я_][A-zА-я0-9_]+"));
 
-        // Common
-        list.add(new TokenType("D_Type",    "(Число|Хекс|Символ|Строка|Булев)"));
+        // Variables
         list.add(new TokenType("D_Name",    "[A-zА-я_]([A-zА-я0-9_]*)?"));
 
         // Etc symbols
