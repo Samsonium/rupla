@@ -1,4 +1,4 @@
-package ru.samsonium.utils;
+package ru.samsonium.support;
 
 public class Log {
     private static enum Color {
@@ -53,7 +53,8 @@ public class Log {
     }
 
     public static String colorze(String input) {
-        return input.replaceAll("$0", Color.bg_black.toString())
+        return input.replaceAll("$r", Color.reset.toString())
+            .replaceAll("$0", Color.bg_black.toString())
             .replaceAll("$1", Color.bg_red.toString())
             .replaceAll("$2", Color.bg_green.toString())
             .replaceAll("$3", Color.bg_yellow.toString())
