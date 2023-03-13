@@ -52,7 +52,7 @@ public class Log {
         }
     }
 
-    public static String colorze(String input) {
+    public static String colorize(String input) {
         return input.replaceAll("$r", Color.reset.toString())
             .replaceAll("$0", Color.bg_black.toString())
             .replaceAll("$1", Color.bg_red.toString())
@@ -86,5 +86,9 @@ public class Log {
             .replaceAll("$e!!", Color.hi_purple.toString())
             .replaceAll("$f!!", Color.hi_cyan.toString())
             .replaceAll("$g!!", Color.hi_white.toString());
+    }
+
+    public static void println(String message) {
+        System.out.println(colorize(message));
     }
 }
