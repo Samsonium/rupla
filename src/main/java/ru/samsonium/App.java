@@ -41,6 +41,8 @@ public class App {
             System.out.print(Log.colorize("$rВведите флаги (если нужны): $g!!"));
             String[] newArgs = sc.nextLine().split(" ");
             parseArguments(newArgs);
+
+            sc.close();
         }
 
         // Try to read file
@@ -61,6 +63,8 @@ public class App {
         StringBuilder sourceCode = new StringBuilder();
         while (sc.hasNextLine())
             sourceCode.append(sc.nextLine()).append("\n");
+
+        sc.close();
 
         // Create lexer
     }
