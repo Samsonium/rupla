@@ -2,8 +2,11 @@ package ru.samsonium;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Scanner;
 
+import ru.samsonium.lexer.Lexer;
+import ru.samsonium.lexer.token.Token;
 import ru.samsonium.support.Config;
 import ru.samsonium.support.Log;
 
@@ -30,7 +33,7 @@ public class App {
             sc = new Scanner(System.in);
             
             // Get file path
-            System.out.print(Log.colorize("$rВведите путь к файлу (или оставьте строку пустой для выхода): $g!!"));
+            System.out.print(Log.colorize("Введите путь к файлу (или оставьте строку пустой для выхода): "));
             filePath = sc.nextLine();
 
             // Check file path string
@@ -38,7 +41,7 @@ public class App {
                 System.exit(0);
             
             // Get flags
-            System.out.print(Log.colorize("$rВведите флаги (если нужны): $g!!"));
+            System.out.print(Log.colorize("Введите флаги (если нужны): "));
             String[] newArgs = sc.nextLine().split(" ");
             parseArguments(newArgs);
 
@@ -50,11 +53,11 @@ public class App {
             file = new File(filePath);
             sc = new Scanner(file);
         } catch (FileNotFoundException e) {
-            System.out.printf(Log.colorize("$r$a!!Файл не найден или к нему нет доступа$r. Указан путь: $g!!%s$r"), filePath);
+            System.out.printf(Log.colorize("Файл не найден или к нему нет доступа. Указан путь: %s"), filePath);
             System.exit(1);
             return;
         } catch (Exception e) {
-            Log.println("$r$a!!Произошла непредвиденная ошибка при чтении файла!$r");
+            Log.println("Произошла непредвиденная ошибка при чтении файла!");
             System.exit(1);
             return;
         }
@@ -65,20 +68,26 @@ public class App {
             sourceCode.append(sc.nextLine()).append("\n");
 
         sc.close();
+        System.out.println("File contents successfully red");
 
         // Create lexer
+        Lexer lex = new Lexer(sourceCode.toString());
+        List<Token> tokens = lex.analyze();
+
+        for (Token t : tokens)
+            System.out.println(t.toString());
     }
 
     /** Display help message */
     private static void displayHelp() {
-        Log.println("$r$4$g!!Справка по использованию интерпретатора Rupla$r\n");
-        Log.println("$r-> Запуск программы: $g!!java -jar rupla.jar $r$d!!<путь к исполняемому файлу>$r\n");
+        Log.println("Справка по использованию интерпретатора Rupla\n");
+        Log.println("-> Запуск программы: java -jar rupla.jar <путь к исполняемому файлу>\n");
 
-        Log.println("$r$g!Доступные флаги:");
-        Log.println("$r$g!! --help          $rПоказать справку");
-        Log.println("$r$g!! --debug         $rПолная информация о работе интерпретатора");
-        Log.println("$r$g!! --debug-lexer   $rСводка о работе лексера");
-        Log.println("$r$g!! --debug-parser  $rСводка о работе парсера\n");
+        Log.println("Доступные флаги:");
+        Log.println(" --help          Показать справку");
+        Log.println(" --debug         Полная информация о работе интерпретатора");
+        Log.println(" --debug-lexer   Сводка о работе лексера");
+        Log.println(" --debug-parser  Сводка о работе парсера\n");
     }
 
     /** Parse arguments */
@@ -105,7 +114,7 @@ public class App {
                         break;
 
                     default:
-                        System.out.printf(Log.colorize("$r-> $cНеизвестный флаг$r: $g!!%s$r\n"), arg);
+                        System.out.printf(Log.colorize("-> Неизвестный флаг: %s\n"), arg);
                 }
             } else {
                 if (arg.contains(".sf"))
